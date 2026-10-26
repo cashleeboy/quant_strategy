@@ -1,0 +1,35 @@
+{
+  "retrieved_utc": "2026-10-24T14:57:10.686430+00:00",
+  "spec": {
+    "directory": "data/delisted_002505_20261024",
+    "code": "400256",
+    "first": "2024-12-18",
+    "sources": {
+      "20241216_listing.pdf": "https://pdf.dfcfw.com/pdf/H2_AN202412161641316202_1.pdf",
+      "20241028_confirmation.pdf": "https://www.nesc.cn/ueditor/jsp/upload/file/20241029/1730180971604027755.pdf"
+    }
+  },
+  "receipts": [
+    {
+      "file": "20241216_listing.pdf",
+      "url": "https://pdf.dfcfw.com/pdf/H2_AN202412161641316202_1.pdf"
+    },
+    {
+      "file": "20241028_confirmation.pdf",
+      "url": "https://www.nesc.cn/ueditor/jsp/upload/file/20241029/1730180971604027755.pdf"
+    },
+    {
+      "file": "transactions_order-1.json",
+      "url": "https://xinsanban.eastmoney.com/api/F10/MarketQuotation/GetTransactionDetail?code=400256&page=1&pagesize=1000&sortType=TRADEDATE&sortRule=-1"
+    },
+    {
+      "file": "transactions_order1.json",
+      "url": "https://xinsanban.eastmoney.com/api/F10/MarketQuotation/GetTransactionDetail?code=400256&page=1&pagesize=1000&sortType=TRADEDATE&sortRule=1"
+    }
+  ],
+  "rows": 440,
+  "first": "2024-12-18 00:00:00",
+  "last": "2026-10-15 00:00:00",
+  "units": "unadjusted yuan/share; volume and amount multiplied by10000",
+  "caveat": "One public vendor, ascending/descending parity is not independent exchange verification. Vendor daily records may include non-trading dates; execution requires independently bounded calendar and volume checks."
+}

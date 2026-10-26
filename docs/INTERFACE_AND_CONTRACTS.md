@@ -308,3 +308,30 @@ python scripts/update_database_cache.py
 
 - 若从宽表改为长表为主，**优先在 `backtest_utils` 增加转换函数**，而非修改所有因子文件。
 - 新增因子时：在 `factors/__init__.py` 或注册表中登记 `FACTOR_REGISTRY[name] = callable`，供 `run_single_backtest("NAME")` 解析（`main` 当前对手传 `factor_values` 路径可不调注册表）。
+
+### 7.1 逐账户研究的公司行动处理（2026-10-24）
+
+新的受控逐账户研究使用 `backtest.replay_with_asset_transitions`（实现位于
+`backtest/action_replay.py`），不要继续复制旧版的无限期最后价格估值逻辑。
+必填参数为 `actions`、`adjustment_factors` 和覆盖所有价格列的 `delist_dates`；
+没有终止上市日期的有效股票也应显式保留一行 `NaT`，不能通过缺行掩盖未知状态。
+
+目前支持已核实的普通流通A股强制换股。`data/research_corporate_actions_v1.json`
+保存两项核实事件及来源；它不是完整的A股公司行动数据库。未知终止上市持仓、
+缺少换股所需复权因子、目的股票缺失上市日报价、重复事件和不支持的事件类型会报错，
+不能静默清零、最后价卖出或持续计为可正常估值的资产。
+
+复权价格等于原始价格乘以因子F，所以转换公式为：
+`新复权单位数 = 旧复权单位数 × 旧F × 公告原始股数换股比例 ÷ 新F`。
+换股在新股首次可交易日的收盘撮合之前处理；不是按公告日提前交易。换股本身
+不收买卖费用、不制造现金，并与原有目的股票持仓合并。之后按原策略调仓，不强制
+立即卖出。普通分红保留复权收益口径，不能再重复加派息现金。
+
+返回值增加 `asset_actions`、`positions`，`daily` 增加 `action_pnl`。旧归因模块
+只看成交重建持仓，不能直接用于有换股的账户：需要同时读取公司行动日志。
+此接口仍是可分割股数研究回放，并非整手、最低佣金、真实税费和柜台结算模型。
+
+`backtest/research_replay.py` 与 `analysis/factor_diagnosis.py::compact_replay`
+保持旧版字节不变，只用于对账冻结历史实验；旧结果不自动升级为已修复结果。
+本次新回放入口为 `scripts/run_asset_transition_fix.py`。主程序的向量化回测与
+六策略前向纸面账本未在本次迁移，不能声称它们获得了本接口的全部能力。

@@ -1,0 +1,37 @@
+{
+  "name": "Fixed15 frozen ML scores: two evidenced delisting continuations, conservative auction guard",
+  "research_only": true,
+  "score_parent": "output/fixed15_ml_20261024",
+  "audit_parent": "output/fixed15_ml_20261024_audit",
+  "market_data": {
+    "400236.OC": "data/delisted_000982_20261024",
+    "400245.OC": "data/delisted_600297_20261024"
+  },
+  "registry": "data/research_delisting_transfers_v2.json",
+  "start": "2012-01-06",
+  "end": "2026-10-15",
+  "confirmations": {
+    "000982_400236_2024": "2024-10-09",
+    "600297_400245_2024": "2024-09-19"
+  },
+  "confirmation_scope": "Explicit research scenario: ordinary unrestricted domestic holder completes confirmation, custody and funding-account procedures by the published deadline. Not evidence that a real account completed them.",
+  "bridge": "Retired adjusted units -> equal raw-share locked right -> same-issuer OTC shares at listing. No synthetic sale, fee or cash.",
+  "unlisted_valuation": "Carry last observable raw price (.18/.78), separately flagged stale and not realizable cash. No future-price backfill.",
+  "execution": "Original next-session-close instructions unchanged. No forced first-day sale; OTC successor is exit-only and sold by the next original non-HOLD target that permits execution. No quote/no volume/one-price limit-down blocks selling.",
+  "otc_limit_rule": "Conservative queue guard: maximum of half-up and inward-rounded five-percent lower bounds with minimum one tick. This is an explicit conservative ambiguity envelope, not certified exchange rounding. A single-price close at or below this bound blocks sells; issuer confirms 400245 first three dates at down limit. Listings are not forced liquidation dates.",
+  "fees": [
+    0.0003,
+    0.0013
+  ],
+  "unchanged": "Reuse exact sealed13-factor model scores, weekly schedules, fixed15 selection, buffers, portfolio constraints and daily risk budgets. All12 accounts rerun including4 RankIC baselines for exact parity.",
+  "limitations": [
+    "Single public vendor OTC daily transaction statistics; not independently verified trade tape.",
+    "Last-observable valuation during suspension/unlisted interval is uncertain, separately disclosed.",
+    "Fractional-share normalized accounts, no minimum commissions, lot-size, full tax, queue or participation-size simulation; auction close sale is conditional research execution, not guaranteed fill.",
+    "First-day eligibility depends on timely confirmation assumption. Delayed confirmation must be a separate evidence-backed scenario.",
+    "Retrospective data already studied; no untouched holdout and no automatic paper/live promotion.",
+    "Unknown additional terminated holdings still abort instead of being zeroed or carried indefinitely.",
+    "400245 later suspensions and Friday-only frequency are not fully integrated as a universal OTC feed; this experiment must prove all positions exited within its verified interval."
+  ],
+  "coverage_scope": "400236 daily coverage to2026-10-15; 400245 verified continuous daily calendar from2024-11-01 through2025-02-17 before first documented halt. Later vendor quotes archived but excluded. Holding400245 beyond coverage must abort, never silently carry or liquidate. Both are exit-only; no later new buys."
+}

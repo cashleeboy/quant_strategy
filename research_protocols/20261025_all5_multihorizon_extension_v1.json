@@ -1,0 +1,31 @@
+{
+  "name": "Add five predeclared traditional factors to unified5-day and multi-horizon fixed15 accounts",
+  "research_only": true,
+  "parent_protocol": "research_protocols/20261025_multihorizon_selection_ablation_v1.json",
+  "candidate_protocol": "research_protocols/20261022_candidate_factors_v1.json",
+  "candidate_output": "output/candidate_factors_20261022",
+  "multihorizon_output": "output/multihorizon_selection_ablation_v3_20261025",
+  "evaluation_start": "2012-01-06",
+  "evaluation_end": "2026-10-15",
+  "candidate_factors": ["DIVIDEND_TTM", "LOW_ACCRUALS", "LOW_ASSET_GROWTH", "GROSS_PROFIT_ASSETS", "MOMENTUM_12_1"],
+  "candidate_horizon": 20,
+  "candidate_horizon_reason": "Dividend, annual accounting quality/capital expansion/profitability and12-minus1-month momentum are medium-to-long signals; predeclare20-session evaluation for all five rather than optimize separately.",
+  "arms": {
+    "ORIGINAL13_5D": "original13 factors, unchanged unified5-session RankIC",
+    "ALL18_5D": "add all five candidates, all18 factors use unified5-session RankIC",
+    "ORIGINAL13_MULTI": "original13 predeclared5/20-session mapping from article146",
+    "ALL18_MULTI": "original13 mapping plus all five candidates evaluated on20 sessions"
+  },
+  "unchanged": "same broad PIT universe, weekly fixed15 full selection rules, held-top30 buffer, industry/theme/correlation caps, daily target-vol budget, repaired corporate-action/delisting ledger, next-session-close fractional execution",
+  "fees": [0.0003, 0.0013],
+  "periods": [["2012-2015", "2012", "2015"], ["2016-2020", "2016", "2020"], ["2021-2026", "2021", "2026"]],
+  "decision": "Research candidate only. Compare before/after at both horizon rules, costs, periods and holdings. No automatic adoption and no modification of paper accounts.",
+  "limitations": [
+    "Retrospective observed sample; not untouched holdout.",
+    "Adding factors changes both information and allocation of old factors; total return difference is not pure causal alpha of one candidate.",
+    "Dividend missingness is neutral after standardization in primary scoring, not asserted zero cash distribution.",
+    "Annual financial inputs inherit vendor revisions and are not immutable statement vintages.",
+    "Twenty-session labels overlap; only one predeclared candidate horizon is tested.",
+    "Fractional shares, simplified fees and research close execution remain."
+  ]
+}

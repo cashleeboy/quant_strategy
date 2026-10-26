@@ -1,0 +1,4 @@
+# Optional, pinned backends for the isolated fixed-15 ML comparison.
+-r requirements.txt
+lightgbm==4.6.0
+catboost==1.2.8

@@ -1,0 +1,56 @@
+{
+  "schema_version": 2,
+  "events": [
+    {
+      "event_id": "000982_400236_2024",
+      "source": "000982.SZ",
+      "claim": "RIGHT:000982.SZ",
+      "destination": "400236.OC",
+      "delist_announcement": "2024-08-12",
+      "delist_date": "2024-08-12",
+      "listing_announcement": "2024-10-10",
+      "listing_date": "2024-10-11",
+      "confirmation_deadline": "2024-10-09",
+      "raw_share_ratio": 1,
+      "last_source_quote": "2024-06-21",
+      "last_raw_close": 0.18,
+      "first_day_low": 0.17,
+      "first_day_high": 0.19,
+      "tick_size": 0.01,
+      "limit_rate": 0.05,
+      "evidence": [
+        "https://money.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=10370135&stockid=000982",
+        "https://file.finance.sina.com.cn/211.154.219.97%3A9494/MRGG/SBGG/2024/2024-10/2024-10-10/10517555.PDF"
+      ],
+      "interpretation": "Same issuer's original unrestricted circulating shares re-registered one-for-one, not a cash payout or merger exchange. An unlisted claim uses raw share units until OTC registration.",
+      "limit_rule": "conservative_envelope"
+    },
+    {
+      "event_id": "600297_400245_2024",
+      "source": "600297.SH",
+      "claim": "RIGHT:600297.SH",
+      "destination": "400245.OC",
+      "delist_announcement": "2024-08-22",
+      "delist_date": "2024-08-28",
+      "listing_announcement": "2024-10-30",
+      "listing_date": "2024-11-01",
+      "confirmation_deadline": "2024-09-19",
+      "last_source_quote": "2024-07-17",
+      "last_raw_close": 0.78,
+      "raw_share_ratio": 1,
+      "first_day_low": 0.74,
+      "first_day_high": 0.82,
+      "tick_size": 0.01,
+      "limit_rate": 0.05,
+      "limit_rule": "conservative_envelope",
+      "coverage_end": "2025-02-17",
+      "evidence": [
+        "https://money.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=10395858&stockid=600297",
+        "https://www.citics.com/newsite/tzgg/ywgg/202409/t20240910_1191271.html",
+        "https://static.cninfo.com.cn/finalpage/2024-10-30/1221570114.PDF",
+        "https://pdf.dfcfw.com/pdf/H2_AN202411051640727286_1.pdf"
+      ],
+      "interpretation": "Same issuer and original unrestricted shares; no exchange ratio or cash payout. Confirmation date is an explicit ordinary domestic account operational assumption, not universal automatic eligibility. The .74..82 interval is a loose five-percent rounding envelope, NOT a sourced issuer first-day range; actual first sale is separately blocked by conservative rounding. Verified continuous OTC calendar ends before the first documented suspension; held shares beyond it abort. Downloaded later bars are not execution-approved."
+    }
+  ]
+}

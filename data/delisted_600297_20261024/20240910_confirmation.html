@@ -1,0 +1,921 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="renderer" content="webkit"/>
+<title>关于广汇汽车服务集团股份公司股份确权的提示性公告_业务公告_中信证券 CITIC Securities</title>
+<link rel="icon" href="../../../favicon.ico" />  
+<link rel="shortcut icon" href="../../../favicon.ico" />
+<link rel="stylesheet" type="text/css" href="../../../images/zxPubliceStyle.css" />
+<link rel="stylesheet" type="text/css" href="../../../images/zxStyle.css" />
+
+<script type="text/javascript" src="../../../images/jquery-1.12.4.min.js"></script>
+
+<style type="text/css">
+
+.curBoxb{color:#555555}
+.curBoxb a{color:#555555}
+
+</style>
+
+</head>
+
+<body class="bodyBG2" style="background: #eee url('');">
+	
+<!--头部开始-->
+<script type="text/javascript">
+
+    var ROOT_PATH="../../../";
+
+jQuery(function(){
+
+
+  //隐藏面包屑，业务中心模块
+  jQuery(".curBoxb a").each(function(){
+     if(jQuery(this).html()=='财富管理'){
+       jQuery(this).hide()
+
+    }
+  })
+
+   jQuery("#clnlFun a").each(function(){
+     if(jQuery(this).html()=='期货经纪人'||jQuery(this).html()=='业务经办人'){
+       jQuery(this).remove()
+
+    }
+
+   })
+
+var token = getCookie('token');
+if(token != '' && token != undefined){
+var getUrl="https://kong.citics.com/api/v2/account/get";//是否绑定资金帐号
+             $.ajax({
+		 url:getUrl,
+		 method:'POST',
+		 dataType:'json', 
+		 data:{'sysNo':'cs118','token':decodeURI(token)},	
+		 success:function(data){
+			var nickName = data. nickName;
+                        var mobile = data. mobile;
+                        $('.nickName').html(nickName != '' ? nickName : (mobile.substring(0,3)+"****"+mobile.substring(7,11)));
+                        $('.loginShow').show();
+                         
+                       
+     
+		 },
+		     error: function() {
+			console.log("请使用ie10及以上版本或chrome浏览器进行访问");
+		     }
+		 
+	   });
+      }
+
+
+})
+
+ 
+
+
+   //$(document).ready(function(){
+jQuery(document).ready(function($) {
+
+       //判断是否登录
+      if(getCookie('logon')=='true'){
+          //修改顶部个人中心那块
+          $('.ButB.a').parent('li').hide();
+          $('.ButB.b').parent('li').hide();     
+          $('.userName').parent('li').show();    
+          $('#logout').parent('li').show(); 
+          $('.channelA.grzx').attr("href","../../../grzx/");  //设置个人中心可访问
+          //处理手机号，将中间四位设置为*号
+          var tel = getCookie('tel');
+          tel=tel.substring(0,3)+"****"+tel.substring(7,11);
+          $('.userName').html(tel);
+      }
+
+    //控制导航栏选中效果
+    $(".headerBb ul li a.channelA").hover(function(){$(this).attr("class","channelA cur");},function(){$(this).attr("class","channelA");});
+
+    })
+
+    //设置cookie值
+    function setCookie(key,val,time){
+
+        var date=new Date(); //获取当前时间
+        if(time==''||time==undefined||time==null){//time为空
+           var exdate=new Date();
+           exdate.setDate(exdate.getDate()+ 365);
+           document.cookie=key + "=" + val  + "; path=/";  //设置cookie
+        }else{//设置cookie留存时间
+           var expiresDays=time;  //将date设置为n天以后的时间
+           date.setTime(date.getTime()+expiresDays*24*3600*1000); //格式化为cookie识别的时间
+           document.cookie=key + "=" + val +";expires="+date.toGMTString()+";path=/";
+         }
+   }
+   //获取cookie的值
+   function getCookie(key){
+
+        /*获取cookie参数*/
+        var getCookie = document.cookie.replace(/[ ]/g,"");  //获取cookie，并且将获得的cookie格式化，去掉空格字符
+        var arrCookie = getCookie.split(";")  //将获得的cookie以"分号"为标识 将cookie保存到arrCookie的数组中
+        var tips;  //声明变量tips
+        for(var i=0;i<arrCookie.length;i++){   //使用for循环查找cookie中的tips变量
+            var arr=arrCookie[i].split("=");   //将单条cookie用"等号"为标识，将单条cookie保存为arr数组
+            if(key==arr[0]){  //匹配变量名称，其中arr[0]是指的cookie名称，如果该条变量为tips则执行判断语句中的赋值操作
+                tips=arr[1];   //将cookie的值赋给变量tips
+                break;   //终止for循环遍历
+            }
+        }
+       return tips;
+   }
+    //删除cookie的值
+    function delCookie(key){
+     setCookie(key,'',-10);
+    }
+       //退出登录
+     function logout(){
+              layer.confirm('您确定要退出登录吗？', {
+              btn: ['确定','取消'] //按钮
+       }, function(){
+             delCookie('token');//清除登录成功标记cookie
+             window.location.href="../../../login/";    
+      }); 
+       
+    }
+
+  </script>
+<style>
+.pubnav li>a{
+	font-size: 16px !important; 
+}
+@media only screen and (max-width:1700px ) {
+    .s_top .title{
+		font-size: 30px !important;
+    }
+}
+.zwB{height:130px;}
+.pt118{padding-top:130px;}
+.header{background: rgba(255, 255, 255, 0.8);}
+.BGeee *{box-sizing:content-box;}
+</style>
+<link rel="stylesheet" type="text/css" href="../../../images/public_20200313v4.css" />
+<!--头部-->
+    <div class="header">
+        <div class="top">
+            <div class="after">
+                <span class="fl">中信证券欢迎您！</span>
+                <div class="fr">
+                    <a href="../../../ywzx/callcenter/ywjs/201710/t20171027_69587.html" class="colorred"><i class="telbtn"></i>客服中心：95548</a>|
+                    <a href="http://www.cs.ecitic.com/newsite/zqkh/">证券开户</a>|
+                    <a href="http://www.cs.ecitic.com/newsite/yywd/">营业网点</a>
+                     <a class="loginShow" style='display:none'>欢迎您 <span class="nickName"></span></a> 
+                        <a class="loginShow" style='display:none'>|</a>
+			<a href="javascript:void(0)"  id="logout" onclick="logout()" class="loginShow"   style='display:none'>退出</a>
+                </div>
+            </div>
+        </div>
+        <div class="nav">
+            <div class="navOut after">
+                <a href="index.html" class="fl logo">
+				
+                                    <img src="../../../ggmk/wztb/wzlogo/201803/W020180711560116478457.png" alt="" />
+                                 
+			</a>
+                <ul class="pubnav fr after">
+                    
+                    
+                        <li>
+                            
+                                <a href="../../../">关于我们</a>
+                                  
+                                
+                               
+                              <div class="navList after">
+                                 
+                                      
+                             
+                                      
+                             
+                                      
+                             
+                                      
+                             	
+                                  	     
+                                        <dl>         
+                                                                               
+                                                    <dt><a href="../../../AboutUs/">公司简介</a></dt> 
+                                               
+                                                                                                            
+                                        </dl>                  
+                                    	     
+                                        <dl>         
+                                                                               
+                                                    <dt><a href="../../../AboutUs/scsy/">市场声誉</a></dt> 
+                                               
+                                                                                                            
+                                        </dl>                  
+                                    	     
+                                        <dl>         
+                                                                               
+                                                    <dt><a href="../../../AboutUs/layout/">全球布局</a></dt> 
+                                               
+                                                                                                            
+                                        </dl>                  
+                                    	     
+                                        <dl>         
+                                                                               
+                                                    <dt><a href="../../../AboutUs/culture/index.html">企业文化</a></dt> 
+                                               
+                                                                                                            
+                                        </dl>                  
+                                                                 
+                               
+                                 
+                              </div>
+                                 
+                                      
+                             
+                                      
+                             
+                                      
+                             
+                                      
+                                               
+                        </li>
+                    
+                     
+                        <li>
+                            
+                                <a href="##">业务介绍</trs_document></a>
+                                  
+                                
+                              <div class="navList after">
+                                  	     
+                                        <dl style="height:72px;">         
+                                             <dt>投资银行</dt> 
+                                                                                
+                                                    <dd><a href="http://www.cs.ecitic.com/newsite/business/bank/tzyh_ywjs/">业务介绍</a></dd> 
+                                                                               
+                                                    <dd><a href="http://www.cs.ecitic.com/newsite/business/bank/tzyh_gqrz/">股权融资</a></dd> 
+                                                                               
+                                                    <dd><a href="http://www.cs.ecitic.com/newsite/business/bank/tzyh_zqrz/">债券融资</a></dd> 
+                                                                               
+                                                    <dd><a href="http://www.cs.ecitic.com/newsite/business/bank/tzyh_bgcz/">并购重组</a></dd> 
+                                                                                                           
+                                        </dl>                  
+                                    	     
+                                        <dl style="height:72px;">         
+                                             <dt>财富管理</dt> 
+                                                                                
+                                                    <dd><a href="http://www.cs.ecitic.com/newsite/business/wealth/cfgl_ywjs/">业务介绍</a></dd> 
+                                                                               
+                                                    <dd><a href="http://www.cs.ecitic.com/newsite/business/wealth/cfgl_khtx/">客户体系</a></dd> 
+                                                                               
+                                                    <dd><a href="http://www.cs.ecitic.com/newsite/business/wealth/cfgl_cptx/">产品体系</a></dd> 
+                                                                               
+                                                    <dd><a href="http://www.cs.ecitic.com/newsite/business/wealth/cfgl_lxwm/">联系我们</a></dd> 
+                                                                                                           
+                                        </dl>                  
+                                    	     
+                                        <dl style="height:72px;">         
+                                             <dt>资产管理</dt> 
+                                                                                
+                                                    <dd><a href="../../../business/asset/zcgl_ywjs/">养老业务介绍</a></dd> 
+                                                                               
+                                                    <dd><a href="https://www.citicsam.com">中信证券资产管理有限公司</a></dd> 
+                                                                                                           
+                                        </dl>                  
+                                    	     
+                                        <dl style="height:72px;">         
+                                             <dt>固定收益</dt> 
+                                                                                
+                                                    <dd><a href="http://www.cs.ecitic.com/newsite/business/fixed/gdsy_ywjs/">业务介绍</a></dd> 
+                                                                               
+                                                    <dd><a href="http://www.cs.ecitic.com/newsite/business/fixed/gdsy_xsyw/">销售业务</a></dd> 
+                                                                               
+                                                    <dd><a href="http://www.cs.ecitic.com/newsite/business/fixed/gdsy_jyyw/">交易业务</a></dd> 
+                                                                               
+                                                    <dd><a href="http://www.cs.ecitic.com/newsite/business/fixed/gdsy_cpyw/">产品业务</a></dd> 
+                                                                                                           
+                                        </dl>                  
+                                    	     
+                                        <dl style="height:72px;">         
+                                             <dt>股权衍生品</dt> 
+                                                                                
+                                                    <dd><a href="http://www.cs.ecitic.com/newsite/business/equity/equity_ywjs/">业务介绍</a></dd> 
+                                                                               
+                                                    <dd><a href="http://www.cs.ecitic.com/newsite/business/equity/equity_fwkh/">服务客户</a></dd> 
+                                                                               
+                                                    <dd><a href="http://www.cs.ecitic.com/newsite/business/equity/equity_qqjy/">场外期权交易</a></dd> 
+                                                                               
+                                                    <dd><a href="http://www.cs.ecitic.com/newsite/business/equity/equity_ggcp/">浮动收益产品</a></dd> 
+                                                                                                           
+                                        </dl>                  
+                                    	     
+                                        <dl style="height:72px;">         
+                                             <dt>证券金融</dt> 
+                                                                                
+                                                    <dd><a href="http://www.cs.ecitic.com/newsite/business/finance/zqjr_ywjs/">业务介绍</a></dd> 
+                                                                               
+                                                    <dd><a href="http://www.cs.ecitic.com/newsite/business/finance/zqjr_rzrq/">融资融券</a></dd> 
+                                                                               
+                                                    <dd><a href="http://www.cs.ecitic.com/newsite/business/finance/zqjr_gpzy/">股票质押</a></dd> 
+                                                                               
+                                                    <dd><a href="http://www.cs.ecitic.com/newsite/business/finance/zqjr_jypt/">交易平台</a></dd> 
+                                                                                                           
+                                        </dl>                  
+                                    	     
+                                        <dl style="height:72px;">         
+                                             <dt>股票销售交易</dt> 
+                                                                                
+                                                    <dd><a href="../../../business/sales/sales_ywjs/">业务介绍</a></dd> 
+                                                                               
+                                                    <dd><a href="../../../business/sales/sales_zhjy/">综合交易</a></dd> 
+                                                                                                           
+                                        </dl>                  
+                                    	     
+                                        <dl style="height:72px;">         
+                                             <dt>研究业务</dt> 
+                                                                                
+                                                    <dd><a href="../../../business/research_sales/research/research_ywjs/">业务介绍</a></dd> 
+                                                                               
+                                                    <dd><a href="../../../business/research_sales/research/research_yjbg/">研究报告</a></dd> 
+                                                                               
+                                                    <dd><a href="../../../business/research_sales/research/research_yjfw/">研究服务</a></dd> 
+                                                                                                           
+                                        </dl>                  
+                                    	     
+                                        <dl style="height:72px;">         
+                                             <dt>托管业务</dt> 
+                                                                                
+                                                    <dd><a href="http://www.cs.ecitic.com/newsite/business/custody/tgb_ywjs/">业务介绍</a></dd> 
+                                                                               
+                                                    <dd><a href="../../../business/custody/publish/report/">信息披露</a></dd> 
+                                                                               
+                                                    <dd><a href="https://iservice.citics.com/">管理人服务平台</a></dd> 
+                                                                               
+                                                    <dd><a href="https://iservice.citics.com/myfund/">投资者服务平台</a></dd> 
+                                                                                                           
+                                        </dl>                  
+                                    	     
+                                        <dl style="height:72px;">         
+                                             <dt>公募基金</dt> 
+                                                                                
+                                                    <dd><a href="http://www.chinaamc.com/">华夏基金</a></dd> 
+                                                                                                           
+                                        </dl>                  
+                                    	     
+                                        <dl style="height:72px;">         
+                                             <dt>私募基金投资业务</dt> 
+                                                                                
+                                                    <dd><a href="http://www.goldstone-investment.com/">金石投资</a></dd> 
+                                                                                                           
+                                        </dl>                  
+                                    	     
+                                        <dl style="height:72px;">         
+                                             <dt>期货业务</dt> 
+                                                                                
+                                                    <dd><a href="https://www.citicsf.com/e-futures/">中信期货</a></dd> 
+                                                                                                           
+                                        </dl>                  
+                                                                 
+                              </div>
+                        </li>
+                     
+                     
+                        <li>
+                            
+                                <a href="https://iservice.citics.com/myfund">产品信息</trs_document></a>
+                                  
+                                
+                               
+                              <div class="navList after">
+                                 
+                                      
+                             
+                                      
+                             
+                                      
+                             
+                                      
+                             	
+                                  	     
+                                        <dl>         
+                                                                               
+                                                    <dt><a href="../../../cpzx/jrcpxxgs/">中信证券销售金融产品信息公示</a></dt> 
+                                               
+                                                                                
+                                                    <dd><a href="../../../cpzx/jrcpxxgs/dxjrcp/">中信证券代销金融产品</a></dd> 
+                                                                               
+                                                    <dd><a href="../../../cpzx/jrcpxxgs/zgcp/">中信证券资管产品</a></dd> 
+                                                                                                           
+                                        </dl>                  
+                                    	     
+                                        <dl>         
+                                                                               
+                                                    <dt><a href="../../../cpzx/xjlc/">现金理财</a></dt> 
+                                               
+                                                                                
+                                                    <dd><a href="../../../cpzx/xjlc/ttlc/">天天利财</a></dd> 
+                                                                               
+                                                    <dd><a href="../../../cpzx/xjlc/xjb/">信金保</a></dd> 
+                                                                                                           
+                                        </dl>                  
+                                    	     
+                                        <dl>         
+                                                                               
+                                                    <dt><a href="https://iservice.citics.com/myfund">中信估值</a></dt> 
+                                               
+                                                                                                            
+                                        </dl>                  
+                                    	     
+                                        <dl>         
+                                                                               
+                                                    <dt><a href="../../../cpzx/cplb/zgcp/index.html">资管产品详情</a></dt> 
+                                               
+                                                                                
+                                                    <dd><a href="../../../cpzx/cplb/zgcp/index.html?productType=pro_public">大集合（参考公募基金运作）</a></dd> 
+                                                                               
+                                                    <dd><a href="../../../cpzx/cplb/zgcp/index.html?productType=pro_limit_min">集合资产管理计划</a></dd> 
+                                                                                                           
+                                        </dl>                  
+                                                                 
+                               
+                                 
+                              </div>
+                                 
+                                      
+                             
+                                      
+                             
+                                      
+                             
+                                      
+                                               
+                        </li>
+                     
+                    
+                        <li>
+                            
+                                <a href="../../../news/">新闻中心</a>
+                                  
+                                
+                              	
+                                                               
+                               
+                                                  
+                        </li>
+                    
+                        <li>
+                            
+                                <a href="../../../tzzgx/">投资者关系</a>
+                                  
+                                
+                               
+                              <div class="navList after">
+                                 
+                                      
+                             
+                                      
+                             
+                                      
+                             
+                                      
+                             
+                                      
+                             
+                                      
+                             
+                                      
+                             
+                                      
+                             	
+                                  	     
+                                        <dl>         
+                                                                               
+                                                    <dt><a href="../../../tzzgx/gsgk/">公司概况</a></dt> 
+                                               
+                                                                                
+                                                    <dd><a href="../../../tzzgx/gsgk/gsjs/">公司介绍</a></dd> 
+                                                                               
+                                                    <dd><a href="../../../tzzgx/gsgk/gszd/">公司制度</a></dd> 
+                                                                               
+                                                    <dd><a href="../../../AboutUs/dsjs/">董监高</a></dd> 
+                                                                               
+                                                    <dd><a href="../../../tzzgx/gsgk/culture/">企业文化</a></dd> 
+                                                                                                           
+                                        </dl>                  
+                                    	     
+                                        <dl>         
+                                                                               
+                                                    <dt><a href="../../../tzzgx/gpjfh/">股票及分红</a></dt> 
+                                               
+                                                                                
+                                                    <dd><a href="../../../tzzgx/gpjfh/gqjg/">股权结构</a></dd> 
+                                                                               
+                                                    <dd><a href="../../../tzzgx/gpjfh/fhqk/">分红情况</a></dd> 
+                                                                               
+                                                    <dd><a href="../../../tzzgx/gpjfh/stockPriceInfo_A/">股价信息(A股)</a></dd> 
+                                                                               
+                                                    <dd><a href="../../../tzzgx/gpjfh/stockPriceInfo_h/">股价信息(H股)</a></dd> 
+                                                                                                           
+                                        </dl>                  
+                                    	     
+                                        <dl>         
+                                                                               
+                                                    <dt><a href="../../../tzzgx/cwbgyzy/">财务报告与摘要</a></dt> 
+                                               
+                                                                                
+                                                    <dd><a href="../../../tzzgx/cwbgyzy/cwbg/">财务报告</a></dd> 
+                                                                               
+                                                    <dd><a href="../../../tzzgx/cwbgyzy/cwzy/">财务摘要</a></dd> 
+                                                                                                           
+                                        </dl>                  
+                                    	     
+                                        <dl>         
+                                                                               
+                                                    <dt><a href="../../../tzzgx/tzzhd/">投资者活动</a></dt> 
+                                               
+                                                                                
+                                                    <dd><a href="../../../tzzgx/tzzhd/tzzrz/">投资者日志</a></dd> 
+                                                                                                           
+                                        </dl>                  
+                                    	     
+                                        <dl>         
+                                                                               
+                                                    <dt><a href="../../../tzzgx/ggyth/">公司公告</a></dt> 
+                                               
+                                                                                
+                                                    <dd><a href="../../../tzzgx/ggyth/gg/aggg/">公告（A股）</a></dd> 
+                                                                               
+                                                    <dd><a href="../../../tzzgx/ggyth/gg/hggg/">公告（H股）</a></dd> 
+                                                                                                           
+                                        </dl>                  
+                                    	     
+                                        <dl>         
+                                                                               
+                                                    <dt><a href="../../../tzzgx/yjfb/">业绩发布</a></dt> 
+                                               
+                                                                                
+                                                    <dd><a href="../../../tzzgx/yjfb/yjfbh/">业绩发布会</a></dd> 
+                                                                                                           
+                                        </dl>                  
+                                    	     
+                                        <dl>         
+                                                                               
+                                                    <dt><a href="../../../tzzgx/tzzfw/">投资者服务</a></dt> 
+                                               
+                                                                                
+                                                    <dd><a href="../../../tzzgx/tzzfw/cjwt_203/">常见问题</a></dd> 
+                                                                               
+                                                    <dd><a href="http://edu.sse.com.cn/">投资者保护宣传</a></dd> 
+                                                                               
+                                                    <dd><a href="https://www.citics.com/newsite/login/report/">非法证券活动举报</a></dd> 
+                                                                               
+                                                    <dd><a href="../../../tzzgx/gstx/">公司通讯</a></dd> 
+                                                                                                           
+                                        </dl>                  
+                                    	     
+                                        <dl>         
+                                                                               
+                                                    <dt><a href="../../../tzzgx/lxwm/">联系我们</a></dt> 
+                                               
+                                                                                                            
+                                        </dl>                  
+                                                                 
+                               
+                                 
+                              </div>
+                                 
+                                      
+                             
+                                      
+                             
+                                      
+                             
+                                      
+                             
+                                      
+                             
+                                      
+                             
+                                      
+                             
+                                      
+                                               
+                        </li>
+                    
+                      <li>
+                          <a href="../../../csr/">社会责任</a> 
+                      </li>
+                   
+                        <li>
+                            
+                                <a href="https://careers.citics.com">加入我们</a>
+                                  
+                                
+                               
+                              <div class="navList after">
+                                 
+                                      
+                             
+                                      
+                             
+                                      
+                             
+                                      
+                             
+                                      
+                             
+                                      
+                             	
+                                  	     
+                                        <dl>         
+                                                                               
+                                                    <dt><a href="https://careers.citics.com/campus/headquarters">总部校园招聘</a></dt> 
+                                               
+                                                                                                            
+                                        </dl>                  
+                                    	     
+                                        <dl>         
+                                                                               
+                                                    <dt><a href="https://careers.citics.com/headquarters/interns">总部实习生招聘</a></dt> 
+                                               
+                                                                                                            
+                                        </dl>                  
+                                    	     
+                                        <dl>         
+                                                                               
+                                                    <dt><a href="https://careers.citics.com/campus/branch">分支机构校园招聘</a></dt> 
+                                               
+                                                                                                            
+                                        </dl>                  
+                                    	     
+                                        <dl>         
+                                                                               
+                                                    <dt><a href="https://careers.citics.com/social/headquarters/">总部社会招聘</a></dt> 
+                                               
+                                                                                                            
+                                        </dl>                  
+                                    	     
+                                        <dl>         
+                                                                               
+                                                    <dt><a href="https://careers.citics.com/social/branch">分支机构社会招聘</a></dt> 
+                                               
+                                                                                                            
+                                        </dl>                  
+                                    	     
+                                        <dl>         
+                                               
+                                                                                                            
+                                        </dl>                  
+                                                                 
+                               
+                                 
+                              </div>
+                                 
+                                      
+                             
+                                      
+                             
+                                      
+                             
+                                      
+                             
+                                      
+                             
+                                      
+                                               
+                        </li>
+                    
+                        <li>
+                            
+                                <a href="../../../en/">English</a>
+                                  
+                                
+                              	
+                                                               
+                               
+                                                  
+                        </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+<!--头部结束-->
+
+
+<div class="zwB"></div>
+	
+<div class="">
+
+<!--面包屑开始-->
+<div class="curBoxb">
+        <a href="../../../" title="首页" class="CurrChnlCls">首页</a>&nbsp;&gt;&nbsp;<a href="../../" title="通知公告" class="CurrChnlCls">通知公告</a>&nbsp;&gt;&nbsp;<a href="../" title="业务公告" class="CurrChnlCls">业务公告</a>
+</div>
+<!--面包屑结束-->
+
+<!-- zcglBa s 
+<div class="zcglBa">
+	<div class="h1Div">业务公告</div>
+	<p>为各类机构和个人投资者提供多种证券投资增值服务</p>
+</div>
+ zcglBa e -->
+
+
+<!--listPBa s-->
+<div class="listPBa">
+<!--左侧开始-->
+
+
+<!--左侧结束-->
+
+<!--右侧开始-->
+<div class="listPBr listPBra">
+	
+	<div class="docTitleB">
+		<h1>关于广汇汽车服务集团股份公司股份确权的提示性公告</h1>
+		
+		<div class="timeB">
+			
+			
+			
+
+			所属： 业务公告&nbsp&nbsp&nbsp&nbsp作者：&nbsp&nbsp&nbsp&nbsp
+<script>
+var sourceName="";
+if(sourceName!=""&&sourceName!=null&&sourceName!='undefined'){
+document.write("来源："+sourceName+"&nbsp&nbsp&nbsp&nbsp")
+}
+</script>
+时间：2024-09-09 18:58:00
+		</div>
+	</div>
+	
+	<div class="docHtmlB">
+<!--
+		<p>
+			<img src="../../../images/zxImga_4.jpg" alt="" />
+		</p>
+-->
+		<p>
+                   <div class=TRS_Editor><span style="color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Helvetica Neue&quot;, Arial, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, &quot;Heiti SC&quot;, &quot;Segoe UI&quot;, sans-serif; font-size: 13px;">广汇汽车服务集团股份公司A股（证券简称：广汇汽车，证券代码：600297，确权证券代码：400245）于2024年8月28日在上交所摘牌并终止上市，预计将于2024年11月8日前在退市板块挂牌转让。根据《关于广汇汽车服务集团股份公司股份确权公告》（以下简称“确权公告”）的内容，广汇汽车服务集团股份公司已委托中国证券登记结算有限责任公司（以下简称“中国结算”）根据投资者沪市证券账户信息初步转换得到对应的退市板块证券账户；如需调整由中国结算选择或新配发的证券账户，投资者应在2024年9月20日前通过托管券商申报其他符合条件的投资者本人深市证券账户。未按时申报或申报无效的，视为投资者同意使用由中国结算选择或新配发的证券账户用于退市板块股份的登记和转让。此外，投资者持有的退市公司股份，在退市板块登记时将维持退市前后托管关系不变，投资者无需办理托管关系的确认手续。我们郑重提醒您，在股份退出登记至完成退市板块登记期间，不得注销拟在退市板块使用的证券账户；未办理股转账户下挂的投资者需及时办理，以免影响您的交易。其他需要申报证券账户、办理托管关系确认手续的情形及未尽事宜，请投资者及时查阅全国中小企业股份转让系统指定信息披露平台（www.neeq.com.cn或www.neeq.cc）的确权公告。</span><br style="color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Helvetica Neue&quot;, Arial, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, &quot;Heiti SC&quot;, &quot;Segoe UI&quot;, sans-serif; font-size: 13px;" />
+<br style="color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Helvetica Neue&quot;, Arial, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, &quot;Heiti SC&quot;, &quot;Segoe UI&quot;, sans-serif; font-size: 13px;" />
+<span style="color: rgb(51, 51, 51); font-family: &quot;PingFang SC&quot;, &quot;Lantinghei SC&quot;, &quot;Helvetica Neue&quot;, Arial, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, &quot;Heiti SC&quot;, &quot;Segoe UI&quot;, sans-serif; font-size: 13px;">链接：https://www.neeq.com.cn/disclosure/2024/2024-09-03/1725354837_261107.pdf</span>&nbsp;
+<div id="translatorExtensionContainer" class="translatorExtension" style="display: none;">&nbsp;</div>
+<div class="translatorExtension" style="position: fixed; display: flex; justify-content: center; bottom: -40vh; left: 0px; right: 0px; margin: 0px auto; width: 100%; transition: 80ms; visibility: hidden;">&nbsp;</div>
+<div id="translatorExtensionContainer" class="translatorExtension">&nbsp;</div>
+<div class="translatorExtension" style="position: fixed; display: flex; justify-content: center; bottom: -40vh; left: 0px; right: 0px; margin: 0px auto; width: 100%; transition: 80ms; visibility: hidden;">&nbsp;</div></div>
+		</p>
+
+<p>
+   
+
+</p>
+
+	</div>
+	
+</div>
+<!--右侧结束-->
+</div>
+<!--listPBa e-->
+
+
+</div>
+
+<style>
+.footer {padding:0;width:100%;display:black;}
+.footer .top{background:none;}
+.footer .top{
+  padding-right:0 !important;
+  overflow:hidden
+}
+.footer .top .leftnav{
+  width:68%;
+  float:left
+}
+.footer .top .codes{
+  width:32%;
+  float:right;
+  zoom:1 ;
+  margin-top:30px
+}
+.footer .top .codes:nth-child(1){
+    margin-left:-8px;
+}
+.footer .top .codes:after{
+     display:block;
+     clear:both;
+     content:"";
+     visibility:hidden;
+     height:0 ;
+}
+.footer img{
+    position:inherit;
+    float:inherit;
+}
+.footer .top{width:100%;}
+.footer .top .codes dl{
+    float:left
+}
+.footer .top .codes dl:nth-child(2){
+    float:right
+}
+.footer .top .codes dl dd{
+    font-size:18px;
+    text-align:center;
+    margin-top:20px
+}
+@media only screen and (max-width: 1700px){
+   .footer .leftnav dl dd a {
+      font-size: 14px; 
+   }
+}
+
+
+
+</style>
+<div class="footer footer2">
+ <div class="pub_wrapper">
+                <div class="after top">
+                    <div class="codes">
+                        <dl>
+                            <dt><img src="../../../images/20200515_code2.jpg" /></dt>
+                            <dd>中信证券发布</dd>
+                        </dl>
+                        <dl>
+                            <dt><img src="../../../images/20200515_code1.jpg" /></dt>
+                            <dd>中信证券</dd>
+                        </dl>
+                    </div>
+                    <div class="leftnav">
+                        <dl>
+                            <dt><a href="http://www.cs.ecitic.com/newsite/AboutUs/">关于中信证券</a></dt>
+                            <dd><a href="http://www.cs.ecitic.com/newsite/AboutUs/">公司概况</a></dd>
+                            <dd><a href="http://www.cs.ecitic.com/newsite/csr/">社会责任</a></dd>
+                            <dd><a href="http://www.cs.ecitic.com/newsite/AboutUs/scsy/">市场声誉</a></dd>
+                            <dd><a href="http://www.cs.ecitic.com/newsite/tzzgx/cwbgyzy/cwbg/">财务报告与摘要</a></dd>
+                        </dl>
+                        <dl>
+                            <dt><a href="http://www.cs.ecitic.com/newsite/tzzgx/gsgk/gsjs/201708/t20170818_40886.html">投资者关系</a></dt>
+                            <dd><a href="http://www.cs.ecitic.com/newsite/tzzgx/cwbgyzy/cwbg/">财务报告</a></dd>
+                            <dd><a href="http://www.cs.ecitic.com/newsite/tzzgx/tzzhd/tzzrz/201707/t20170720_38546.html">投资者活动</a></dd>
+                            <dd><a href="http://www.cs.ecitic.com/newsite/tzzgx/yjfb/yjfbh/">业绩发布</a></dd>
+                            <dd><a href="http://www.cs.ecitic.com/newsite/tzzgx/ggyth/gg/aggg/">公告与通函</a></dd>
+                        </dl>
+                        <dl>
+                            <dt><a href="http://www.cs.ecitic.com/newsite/tzzjy/">投资者教育</a></dt>
+                            <dd><a href="http://www.cs.ecitic.com/newsite/tzzjy/zxfg/flfg/">政策法规</a></dd>
+                            <dd><a href="http://www.cs.ecitic.com/newsite/tzzjy/zxhd/tzzsdxgl/">专项活动</a></dd>
+                            <dd><a href="http://www.cs.ecitic.com/newsite/tzzjy/jglj/">监管链接</a></dd>
+                            <dd><a href="http://www.cs.ecitic.com/newsite/tzzjy/fxjs/">风险揭示</a></dd>
+                            <dd><a href="http://www.cs.ecitic.com/newsite/tzzjy/zxhd/djffzqhd/">防非专栏</a></dd>
+                         </dl>
+                        <dl>
+                            <dt><a href="https://careers.citics.com/">加入我们</a></dt>
+                            <dd><a href="https://careers.citics.com/">JOIN US</a></dd>
+                            <dd><a href="https://careers.citics.com/campus/headquarters/">总部校园招聘</a></dd>
+                            <dd><a href="https://careers.citics.com/headquarters/interns/">总部实习生招聘</a></dd>
+                            <dd><a href="https://careers.citics.com/campus/branch/">分支机构校园招聘</a></dd>
+                        </dl>
+                    </div>
+                    
+                </div>
+            </div> 
+          <div class="bottom" style="color:white">
+            <div class="pub_wrapper">
+                <h2 class="font24"><a href="#2">关于中信证券</a> | <a href="https://www.group.citic/">中信集团</a>  | <a href="../../../contact/">联系我们</a> </h2>
+                <div class="in after">
+                    <div class="left font18"  style="color:white">
+                        <p  style="color:white" id="beian">中国中信集团有限公司版权所有 Copyright © CITIC Holdings All rights reserved <a href="https://beian.miit.gov.cn" target="_blank" style="color:white">京ICP证030779-2号-3</a> 
+               </p>
+                <p id="police"><a href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010502038911" target="_blank" style="color:white">京公网安备 11010502038911号 </a></p>
+        <p  style="color:white">本公司开展网上证券委托业务已经中国证监会核准 该核准不构成中国证监会对本公司网上证券委托业务安全和效率的任何保证 </p>
+                    </div>
+                    <p class="right font24">股市有风险 投资需谨慎</p>
+                </div>
+                <div style="font-size:14px;text-align:center;color:white">本网站支持IPv6</div>
+            </div>
+        </div>
+      </div>
+
+<script>
+  var domain = window.location.host;
+  if(domain == 'www.citics.com.cn'){
+      document.getElementById('beian').innerHTML='<a href="https://beian.miit.gov.cn" target="_blank" style="color:white">粤ICP备18076159号-3</a>';
+      document.getElementById('police').innerHTML='粤公网安备 44030402005050号';  	
+  }else if(domain == 'www.citics.citic'){
+      document.getElementById('beian').innerHTML='<a href="https://beian.miit.gov.cn" target="_blank" style="color:white">粤ICP备18076159号-5</a>';
+      document.getElementById('police').innerHTML='粤公网安备 44030402005050号';  	
+  }else if(domain == 'www.xn--fiq64bm3ck81h.xn--fiq64b'){
+      document.getElementById('beian').innerHTML='<a href="https://beian.miit.gov.cn" target="_blank" style="color:white">粤ICP备18076159号-4</a>';
+      document.getElementById('police').innerHTML='粤公网安备 44030402005050号';  	
+  }
+</script>
+
+<script type="text/javascript" src="../../../images/zxJs.js"></script>
+	
+</body>
+</html>

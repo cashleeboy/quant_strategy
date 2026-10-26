@@ -1,0 +1,33 @@
+{
+  "name": "Fixed15 RankIC diversification buffer risk: weekly versus fortnightly versus calendar month end",
+  "research_only": true,
+  "parent_output": "output/factor_diagnosis_20261021",
+  "parent_protocol": "research_protocols/20261020_single_account_adaptive_v1.json",
+  "source_protocol": "research_protocols/20261018_six_strategy_ic_comparison_v1.json",
+  "evaluation_start": "2012-01-06",
+  "evaluation_end": "2026-10-15",
+  "fees": [0.0, 0.0003, 0.0013],
+  "frequencies": ["WEEKLY", "FORTNIGHTLY", "MONTHLY"],
+  "bootstrap": "All start from the same 2012-01-06 signal, executing next session close; no different first-entry timing",
+  "weekly": "Original completed W-FRI weeks, last open session; partial final week excluded",
+  "fortnightly": "Every second calendar W-FRI week anchored on bootstrap week; empty holiday weeks do not reset phase",
+  "monthly": "Last open session of completed calendar months plus common bootstrap; no partial final month",
+  "factor_weights": "Reuse identical sealed monthly252 matured5day RankIC weights for every arm; as-of latest update <= signal; no new factors or ICIR",
+  "portfolio": "Same fixed15, top100 candidates, industry20%, specified theme35%, pair correlation0.8 and retained top30 buffer as parent",
+  "risk": "Unchanged DAILY intended-basket volatility budget and thresholds; risk-only trades can happen between scheduled reselections and reset equal target proportions, not necessarily proportional actual positions",
+  "cost_attribution": "Every execution classified BOOTSTRAP, SCHEDULED_ONLY, SCHEDULED_AND_RISK, RISK_ONLY or HOLD. Joint-day costs not artificially split into unidentifiable causal contributions",
+  "universe_benchmark": "Keep parent's weekly costed common-pool equal-weight benchmark unchanged across strategy frequency comparisons",
+  "index_benchmarks": ["000300.SH", "000016.SH", "H00300.CSI", "H00016.CSI"],
+  "index_policy": "Request total return and price indices; require complete common-date data. If TR unavailable, report price-only limitation, do not synthesize dividends or silently shorten comparison",
+  "index_entry": "Index level frozen at common first execution close; NAV=1 on initial signal date; no ETF fees, buy-and-hold index benchmark",
+  "report_periods": ["FULL", "2012-2015", "2016-2020", "2021-2026"],
+  "limitations": [
+    "Observed historical data, not untouched OOS or automatic deployment",
+    "Same inherited adjusted-price fractional-share engine, not lots/actual commissions/taxes/limits/capacity",
+    "PIT availability uses existing supplier financial snapshot and industry intervals; original vintages not fully recoverable",
+    "Scheduled universe eligibility checked only at reselection as in parent; not new daily forced-risk exits",
+    "Changing frequency also changes holding horizons, score freshness and calendar timing; no universal optimal-frequency claim",
+    "Fixed15 stock-capital distribution, exposure changes and index style differences prevent interpreting raw return gaps as pure alpha",
+    "Missing quotes block execution and keep stale marks; retain stranded-position sensitivity"
+  ]
+}

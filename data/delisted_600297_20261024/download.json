@@ -1,0 +1,42 @@
+{
+  "retrieved_utc": "2026-10-24T14:51:24.229360+00:00",
+  "receipts": [
+    {
+      "file": "20241030_risk.pdf",
+      "url": "https://static.cninfo.com.cn/finalpage/2024-10-30/1221570114.PDF"
+    },
+    {
+      "file": "20241105_limits.pdf",
+      "url": "https://pdf.dfcfw.com/pdf/H2_AN202411051640727286_1.pdf"
+    },
+    {
+      "file": "20250317_resume.pdf",
+      "url": "https://static.cninfo.com.cn/finalpage/2025-03-17/1222821222.PDF"
+    },
+    {
+      "file": "20250506_frequency.pdf",
+      "url": "https://static.cninfo.com.cn/finalpage/2025-05-06/1223476002.PDF"
+    },
+    {
+      "file": "20240910_confirmation.html",
+      "url": "https://www.citics.com/newsite/tzgg/ywgg/202409/t20240910_1191271.html"
+    },
+    {
+      "file": "20240822_delist.html",
+      "url": "https://money.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=10395858&stockid=600297"
+    },
+    {
+      "file": "transactions_order-1.json",
+      "url": "https://xinsanban.eastmoney.com/api/F10/MarketQuotation/GetTransactionDetail?code=400245&page=1&pagesize=1000&sortType=TRADEDATE&sortRule=-1"
+    },
+    {
+      "file": "transactions_order1.json",
+      "url": "https://xinsanban.eastmoney.com/api/F10/MarketQuotation/GetTransactionDetail?code=400245&page=1&pagesize=1000&sortType=TRADEDATE&sortRule=1"
+    }
+  ],
+  "rows": 454,
+  "first": "2024-11-01 00:00:00",
+  "last": "2026-10-15 00:00:00",
+  "units": "unadjusted yuan/share; volume ten-thousand shares and amount ten-thousand yuan converted by10000",
+  "caveat": "Vendor daily series is not a trading calendar. Later suspension/frequency periods require separate evidence; do not treat filled zero-volume dates as executions."
+}

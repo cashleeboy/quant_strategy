@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "scope": "Verified mandatory stock swaps for ordinary unrestricted A-share research holdings; no cash-option election, no round-lot rounding.",
+  "recognition_policy": "Convert at first tradable listing session before close execution; retain old stale mark until previous close. No early trading of unlisted entitlements.",
+  "events": [
+    {
+      "event_id": "000748_000066_20170118",
+      "kind": "stock_swap",
+      "source": "000748.SZ",
+      "destination": "000066.SZ",
+      "announcement_date": "2017-01-13",
+      "record_date": "2017-01-17",
+      "effective_date": "2017-01-18",
+      "ratio_numerator": 1.0,
+      "ratio_denominator": 0.5424,
+      "evidence": [
+        "https://static.cninfo.com.cn/finalpage/2017-01-13/1203011775.PDF",
+        "https://www.szse.cn/aboutus/trends/news/t20170118_518883.html",
+        "https://static.cninfo.com.cn/finalpage/2017-01-20/1203031394.PDF"
+      ],
+      "evidence_note": "2017-014 notice establishes Jan17 record date and 0.5424 old shares per one new share. Exchange confirms Jan18 listing; Jan20 implementation report is ex-post corroboration only, never a ranking feature."
+    },
+    {
+      "event_id": "000418_000333_20190621",
+      "kind": "stock_swap",
+      "source": "000418.SZ",
+      "destination": "000333.SZ",
+      "announcement_date": "2019-06-19",
+      "record_date": "2019-06-20",
+      "effective_date": "2019-06-21",
+      "ratio_numerator": 1.15144821,
+      "ratio_denominator": 1.0,
+      "evidence": [
+        "https://disc.static.szse.cn/download/disc/disk02/finalpage/2019-06-19/3978e2ba-3fb8-47c1-8864-9733b38a16ab.PDF",
+        "https://www.szse.cn/disclosure/notice/t20190618_567932.html"
+      ],
+      "evidence_note": "Listing report PDF pages4 and29 (one-based) gives final post-dividend ratio1.15144821; page2 gives June21 listing, page26 gives June20 record date. Do not use initial1.2110 or intermediate ratio."
+    }
+  ]
+}

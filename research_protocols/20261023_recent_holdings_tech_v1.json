@@ -1,0 +1,18 @@
+{
+  "research_only": true,
+  "parent": "output/candidate_factors_20261022",
+  "historical_start": "2012-01-06",
+  "focus_start": "2021-01-01",
+  "end": "2026-10-15",
+  "recipes": ["BASE", "ALL5"],
+  "frequencies": ["WEEKLY", "MONTHLY"],
+  "fees": [0.0003, 0.0013],
+  "technology_definition": ["电子", "计算机", "通信", "传媒", "电力设备"],
+  "variants": {"TECH_LITERAL": 0.35, "TECH15": 1.0},
+  "scores": "Reuse full-base-pool PIT RankIC weights and full-pool standardization, then restrict by historical industry BEFORE taking top100. No technology-specific IC fitting.",
+  "selection": "Original fixed15, industry max3, correlation <=0.8, held-top30 buffer; only theme cap differs in TECH15; underfill remains cash, never renormalized to15.",
+  "execution": "Original next-close fractional research replay, daily risk review unchanged. Full2012 replay then slice2021; no2021 reset.",
+  "controls": "Reconstruct four parent BASE/ALL5 weekly/monthly3bp accounts exactly from saved actions/targets. Technology equal-weight pool references and original six-strategy fixed-weight TOP50 are separate non-matched portfolio structures.",
+  "attribution": "Actual fills reconstruct shares. Prior shares times close mark change minus per-symbol fees. Sum currency PNL divided by period initial NAV exactly equals cumulative return; includes unrealized PNL. Historical industry at previous close for attribution. Snapshot names only for display.",
+  "limitations": ["No fresh OOS; same previously observed history", "Five broad industries are not a semiconductor or AI index", "No lot sizes, minimum commissions, taxes, limit queues or capacity", "Raw vendor revisions and historical industry coverage limitations inherited", "No live/paper defaults changed", "Attribution describes holdings, not causal proof of why factors failed"]
+}

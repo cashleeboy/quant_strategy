@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "events": [{
+    "event_id": "000982_400236_2024",
+    "source": "000982.SZ",
+    "claim": "RIGHT:000982.SZ",
+    "destination": "400236.OC",
+    "delist_announcement": "2024-08-12",
+    "delist_date": "2024-08-12",
+    "listing_announcement": "2024-10-10",
+    "listing_date": "2024-10-11",
+    "confirmation_deadline": "2024-10-09",
+    "raw_share_ratio": 1.0,
+    "last_source_quote": "2024-06-21",
+    "last_raw_close": 0.18,
+    "first_day_low": 0.17,
+    "first_day_high": 0.19,
+    "tick_size": 0.01,
+    "limit_rate": 0.05,
+    "evidence": [
+      "https://money.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=10370135&stockid=000982",
+      "https://file.finance.sina.com.cn/211.154.219.97%3A9494/MRGG/SBGG/2024/2024-10/2024-10-10/10517555.PDF"
+    ],
+    "interpretation": "Same issuer's original unrestricted circulating shares re-registered one-for-one, not a cash payout or merger exchange. An unlisted claim uses raw share units until OTC registration."
+  }]
+}

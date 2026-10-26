@@ -1,0 +1,62 @@
+{
+  "name": "Single account: RankIC, diversification, dynamic K and cash ablations",
+  "research_only": true,
+  "evaluation_start": "2012-01-01",
+  "evaluation_end": "2026-10-15",
+  "warmup": "2011 IC observations; 2010 prices. Every arm starts in cash at the first weekly signal of 2012.",
+  "prior_replay": "output/mvp_holdings_count_20261017_complete_factors",
+  "factor_source": "output/six_strategy_ic_comparison_20261018",
+  "family_protocol": "research_protocols/20260923_strategy_universe_profiles_v1.json",
+  "arms": ["FIXED50", "FIXED15", "IC15", "IC_CONSTRAINED15", "IC_DYNAMIC", "IC_DYNAMIC_RISK", "FIXED15_RISK"],
+  "fees": [0.0003, 0.0013],
+  "ic": {
+    "label_holding_sessions": 5,
+    "lookback": 252,
+    "minimum": 120,
+    "update": "first weekly signal each calendar month",
+    "known": "outcome_end strictly before update signal",
+    "allocation": "positive mean daily RankIC, proportionally capped; no permanent fixed-weight blend",
+    "factor_cap": 0.2,
+    "maximum_monthly_weight_change": 0.05,
+    "fallback": "retain previous weights if fewer than five positive factors meet minimum history; initialize five families each 20%, equal within family",
+    "score": "retain production two-stage family standardization; family budgets are sums of current nominal factor weights; candidates must have a valid original fixed score; adaptive missing family scores renormalize available family budgets instead of treating missing as zero"
+  },
+  "selection": {
+    "candidate_limit": 100,
+    "k_candidates": [10, 15, 20],
+    "buffer_exit_multiple": 2,
+    "industry_cap": 0.2,
+    "theme_cap": 0.35,
+    "theme_industries": ["电子", "计算机", "通信", "传媒", "电力设备"],
+    "correlation_cap": 0.8,
+    "history_sessions": 126,
+    "minimum_name_observations": 100,
+    "minimum_pair_observations": 80,
+    "covariance": "pairwise sample covariance, 20% diagonal shrinkage, PSD eigenvalue clipping; correlations use unshrunk returns",
+    "diversification_ratio_squared_target": 3.0,
+    "dynamic_rule": "smallest complete K meeting diversification target; otherwise K20; never select K using past strategy return",
+    "underfill": "each chosen stock keeps 1/requested_K weight; unused slots stay cash",
+    "missing_industry": "UNKNOWN is one capped industry",
+    "missing_correlation": "reject candidate if a required pair correlation is unknown"
+  },
+  "risk": {
+    "target_annual_volatility": 0.15,
+    "lookback": 60,
+    "minimum_complete_observations": 40,
+    "minimum_budget": 0.2,
+    "maximum_budget": 1.0,
+    "adjustment_threshold": 0.1,
+    "minimum_sessions_between_budget_changes": 5,
+    "rule": "daily review of trailing returns of current intended equal-weight basket; multiply base target by clipped target_vol / estimated_vol; retain budget if history insufficient",
+    "execution": "weekly stock selection; extra risk-only trades when threshold and cooldown permit; next session close"
+  },
+  "execution": "shared research_replay, adjusted-close fractional shares, sell first, cash scaled buys, missing quotes not filled",
+  "cash_interest": 0,
+  "limitations": [
+    "Retrospective experiment, not untouched out-of-sample or live approval.",
+    "No lot sizes, minimum commissions, actual tax schedule, limit-up/down queue or capacity simulation.",
+    "Original frozen PIT universe and factor cache inherit vendor financial revisions, incomplete historical industry coverage and cash-flow proxy limitations.",
+    "Daily five-session IC labels overlap; no independent-sample significance claim.",
+    "No parameter search or historical winner automatically adopted."
+  ]
+}

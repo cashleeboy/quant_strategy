@@ -1,0 +1,26 @@
+{
+  "name": "Fixed15 ML continuation with evidenced OTC equity registration",
+  "research_only": true,
+  "score_parent": "output/fixed15_ml_20261024",
+  "audit_parent": "output/fixed15_ml_20261024_audit",
+  "market_data": "data/delisted_000982_20261024",
+  "registry": "data/research_delisting_transfers_v1.json",
+  "start": "2012-01-06",
+  "end": "2026-10-15",
+  "confirmations": {"000982_400236_2024": "2024-10-09"},
+  "confirmation_scope": "Explicit research scenario: ordinary unrestricted domestic holder completes confirmation, custody and funding-account procedures by the published deadline. Not evidence that a real account completed them.",
+  "bridge": "At delisting, convert old adjusted units into equal original raw shares in a non-tradable equity claim. At listing, reclassify claim one-for-one as 400236.OC. No cash, sale or fee on either classification.",
+  "unlisted_valuation": "Carry last observable raw close0.18 as a separately flagged stale valuation, not fair value or a realizable cash amount. Never use future listing prices early.",
+  "execution": "Original next-session-close instructions unchanged. No forced first-day sale; OTC successor is exit-only and sold by the next original non-HOLD target that permits execution. No quote/no volume/one-price limit-down blocks selling.",
+  "otc_limit_rule": "5% rounded half-up to0.01 yuan, with at least one tick move; first-day range0.17..0.19 comes from issuer notice. One-price limit-up does not block a sell.",
+  "fees": [0.0003,0.0013],
+  "unchanged": "Reuse exact sealed13-factor model scores, weekly schedules, fixed15 selection, buffers, portfolio constraints and daily risk budgets. All12 accounts rerun including4 RankIC baselines for exact parity.",
+  "limitations": [
+    "Single public vendor OTC daily transaction statistics; not independently verified trade tape.",
+    "Last-observable valuation during suspension/unlisted interval is uncertain, separately disclosed.",
+    "Fractional-share normalized accounts, no minimum commissions, lot-size, full tax, queue or participation-size simulation; auction close sale is conditional research execution, not guaranteed fill.",
+    "First-day eligibility depends on timely confirmation assumption. Delayed confirmation must be a separate evidence-backed scenario.",
+    "Retrospective data already studied; no untouched holdout and no automatic paper/live promotion.",
+    "Unknown additional terminated holdings still abort instead of being zeroed or carried indefinitely."
+  ]
+}

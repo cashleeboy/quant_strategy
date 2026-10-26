@@ -1,0 +1,38 @@
+{
+  "retrieved_utc": "2026-10-24T07:13:29.403126+00:00",
+  "receipts": [
+    {
+      "file": "20241010_listing.pdf",
+      "url": "https://file.finance.sina.com.cn/211.154.219.97%3A9494/MRGG/SBGG/2024/2024-10/2024-10-10/10517555.PDF",
+      "bytes": 184585
+    },
+    {
+      "file": "20241010_listing_em.pdf",
+      "url": "https://pdf.dfcfw.com/pdf/H2_AN202410101640245695_1.pdf",
+      "bytes": 184585
+    },
+    {
+      "file": "transactions_order-1.json",
+      "url": "https://xinsanban.eastmoney.com/api/F10/MarketQuotation/GetTransactionDetail?code=400236&page=1&pagesize=1000&sortType=TRADEDATE&sortRule=-1",
+      "bytes": 97505
+    },
+    {
+      "file": "transactions_order1.json",
+      "url": "https://xinsanban.eastmoney.com/api/F10/MarketQuotation/GetTransactionDetail?code=400236&page=1&pagesize=1000&sortType=TRADEDATE&sortRule=1",
+      "bytes": 97505
+    }
+  ],
+  "first": "2024-10-11",
+  "last": "2026-10-15",
+  "rows": 488,
+  "units": "unadjusted yuan/share; source volume in ten-thousand shares; source amount in ten-thousand yuan",
+  "checks": [
+    "ascending/descending query parity",
+    "single page complete",
+    "raw versus forward-adjusted close parity",
+    "OHLC bounds",
+    "volume-value consistency",
+    "issuer first-day range"
+  ],
+  "caveat": "Eastmoney public transaction statistics, not independently verified exchange tape; kline endpoint intermittent failure; Tencent returned no bars; NEEQ direct PDF returned403"
+}

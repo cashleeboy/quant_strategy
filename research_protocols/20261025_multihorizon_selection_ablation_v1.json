@@ -1,0 +1,41 @@
+{
+  "name": "Economic-horizon RankIC and fixed15 selection-rule ablations",
+  "research_only": true,
+  "parent_protocol": "research_protocols/20261020_single_account_adaptive_v1.json",
+  "factor_source": "output/six_strategy_ic_comparison_20261018",
+  "baseline_source": "output/candidate_factors_20261022",
+  "asset_ledger_protocol": "research_protocols/20261024_fixed15_ml_delisting_v4.json",
+  "evaluation_start": "2012-01-06",
+  "evaluation_end": "2026-10-15",
+  "weight_update": "first available weekly signal of each month; 252 matured daily IC observations; minimum120; positive mean IC; factor cap20%; maximum monthly movement5 percentage points",
+  "horizons": {
+    "5": ["REVERSAL_5D", "VOLATILITY"],
+    "20": ["PE", "FREE_CASH_FLOW_YIELD", "ROE", "GROSS_MARGIN", "NET_MARGIN", "LOW_DEBT_TO_ASSETS", "CASH_PROFIT_QUALITY", "REVENUE_GROWTH", "PROFIT_GROWTH", "MOMENTUM", "MOMENTUM_60D"]
+  },
+  "horizon_reason": "Short reversal and short risk are evaluated on5 sessions; valuation, accounting information, growth and medium trend are evaluated on20 sessions. This is fixed before results and is not optimized per factor.",
+  "weight_rules": {
+    "BASE_5D": "unchanged sealed all-factor5-session RankIC weights",
+    "SHORT_REVERSAL": "remove20-day and60-day momentum from the timing family; remaining11 factors use5-session IC",
+    "TREND_FLOOR": "start from BASE_5D monthly weights; impose minimum10% nominal weight on each of MOMENTUM and MOMENTUM_60D, scaling all other factors proportionally; no return-based tuning",
+    "MULTI_HORIZON": "each factor uses the predeclared5- or20-session IC above; otherwise same positive-IC capped monthly update"
+  },
+  "selection_ablations": {
+    "FULL": "original held-top30 buffer, correlation,20% single-industry and35% technology-theme caps",
+    "NO_BUFFER": "old holdings receive priority only while still in score Top15, not Top30",
+    "NO_CORRELATION": "do not reject a candidate for pair correlation or missing pair correlation",
+    "NO_INDUSTRY_CAP": "remove single-industry cap; retain technology aggregate cap",
+    "NO_TECH_CAP": "remove technology aggregate cap; retain single-industry cap"
+  },
+  "ablation_scope": "Run all five selection forms for BASE_5D and MULTI_HORIZON at3bp. Run FULL for all four weight rules at3bp and13bp. Every ablation removes exactly one rule; it is not a candidate for automatic adoption.",
+  "unchanged": "same point-in-time broad tradable universe,13 traditional factors, family restandardization, weekly stock selection, fixed15 equal stock targets, daily15% target-vol budget with20%-100% bounds, next-session-close execution and repaired corporate-action/delisting ledger",
+  "fees": [0.0003, 0.0013],
+  "periods": [["2012-2015", "2012", "2015"], ["2016-2020", "2016", "2020"], ["2021-2026", "2021", "2026"]],
+  "validation": "Report full period, three predeclared subperiods and calendar years. Conclusions require cross-period evidence; Cambricon is diagnostic only and never an optimization target.",
+  "limitations": [
+    "Retrospective research on already observed data; no untouched holdout and no paper/live promotion.",
+    "Twenty-session labels overlap and monthly weights are estimates, not stable causal parameters.",
+    "Only two economically chosen horizons are tested; this does not establish an optimal horizon.",
+    "Fractional shares, simplified fees and research close execution remain; repaired delisting rights are conditional on documented confirmation assumptions.",
+    "Leave-one-out effects need not add up because selection rules interact and change subsequent held-state buffers and risk budgets."
+  ]
+}

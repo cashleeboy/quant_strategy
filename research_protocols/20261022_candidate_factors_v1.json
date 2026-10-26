@@ -1,0 +1,34 @@
+{
+  "name": "Five candidate factors in fixed15 RankIC portfolio",
+  "research_only": true,
+  "parent_protocol": "research_protocols/20261020_single_account_adaptive_v1.json",
+  "parent_output": "output/rebalance_frequency_20261022",
+  "source_protocol": "research_protocols/20261018_six_strategy_ic_comparison_v1.json",
+  "evaluation_start": "2012-01-06",
+  "evaluation_end": "2026-10-15",
+  "frequencies": ["WEEKLY", "MONTHLY"],
+  "fees": [0, 0.0003, 0.0013],
+  "candidate_families": {
+    "DIVIDEND_TTM": "VALUE",
+    "LOW_ACCRUALS": "QUALITY",
+    "LOW_ASSET_GROWTH": "GROWTH",
+    "GROSS_PROFIT_ASSETS": "QUALITY",
+    "MOMENTUM_12_1": "MOMENTUM_REVERSAL"
+  },
+  "formulas": {
+    "DIVIDEND_TTM": "Tushare daily_basic.dv_ttm / 100, latest snapshot <= signal, age <=7 calendar days; no repricing or zero filling; vendor definition restricts both ex date and reporting period to last12 months",
+    "LOW_ACCRUALS": "-(annual consolidated n_income - same-period operating cashflow n_cashflow_act) / ((year-end assets + exact preceding-year assets)/2); nonfinancial companies only",
+    "LOW_ASSET_GROWTH": "-(annual year-end assets / exact preceding-year assets - 1); nonfinancial companies only; conservative investment hypothesis, NOT high growth preference",
+    "GROSS_PROFIT_ASSETS": "(annual revenue - annual operating cost) / same year-end assets; nonfinancial companies only",
+    "MOMENTUM_12_1": "adjusted P[t-21]/P[t-252]-1; >=90% valid prices in253-session window, endpoints/current quote required"
+  },
+  "financial_asof": "report_type1 only; annual Dec31; max(ann_date,f_ann_date) strictly before signal; latest known version per report; conflicts become missing; latest known asset year anchors all financial factors, no fallback to older complete annual reports; exact prior annual assets; max report age730 days",
+  "preprocessing": "existing 1%-99% industry zscore with small-industry global fallback; preserve missing data for IC; neutral zero ONLY for new-factor portfolio scoring after standardization; no universe removal in primary arms",
+  "weights": "same252 matured daily5-session RankIC, min120, positive mean capped20%, max5pp monthly change, same first-weekly-of-month updates. Initialize original13 prior and zero new weights; warm2011. Recompute full weight vector separately for each inclusion arm; no fixed blend; old dailyIC remains sealed original evidence",
+  "arms": ["BASE", "DIVIDEND_TTM", "LOW_ACCRUALS", "LOW_ASSET_GROWTH", "GROSS_PROFIT_ASSETS", "MOMENTUM_12_1", "ALL5", "COMMON_BASE", "COMMON_ALL5"],
+  "common_control": "COMMON arms restrict ranking to identical all-five-raw-valid names each signal; reuse respective BASE/ALL5 full-pool learned weights and score standardization before filtering; isolates selection coverage without claiming pure alpha. Primary arms retain original fixed-score-valid pool; new missing scores neutral. Common pool may be empty after long holidays with stale dividend snapshots: apply original underfill rule, zero names means cash target, no stale-data exception or invented names",
+  "unchanged": "fixed15, top100, original industry/theme/correlation caps, held-top30 buffer, daily target-vol risk budget, next-close fractional sell-first execution",
+  "labels": "signal+1 close entry, signal+6 close exit, outcome_end strictly before weight update; overlapping daily labels are not independent",
+  "decision": "Retrospective diagnostic only; do not select winner as live default or alter paper ledgers. Five single additions plus joint addition; weekly and monthly; all costs and subperiods reported.",
+  "limitations": ["Vendor revised snapshots are not immutable financial vintages", "Dividend null can mean no dividend or unavailable; never asserted zero", "Weekly dividend snapshots are deliberately stale on other dates", "Annual financial factors not TTM; financial industry marked missing, not excluded in primary arms", "No lot/minimum commission/tax/limit queue/capacity model", "All years already observed in prior research, not fresh OOS", "No causal attribution of total performance change to isolated new alpha: adding factors also reallocates old weights"]
+}

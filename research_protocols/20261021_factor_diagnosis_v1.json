@@ -1,0 +1,22 @@
+{
+  "name": "Frozen diagnostic audit, not a new factor admission or deployment",
+  "parent_output": "output/single_account_fixed15_risk_20261021",
+  "parent_protocol": "research_protocols/20261020_single_account_adaptive_v1.json",
+  "evaluation_start": "2012-01-01",
+  "evaluation_end": "2026-10-15",
+  "horizons": [1, 5, 20, 60],
+  "include_next_execution": true,
+  "horizon_entry": "signal+1 close; exit entry+h sessions or next weekly signal+1 close; no price filling",
+  "horizon_samples": ["native", "common_all_horizons"],
+  "horizon_selection": "Form scores, deciles, top decile and top15 before checking future return availability. Report coverage. Common sample affects statistical evaluation only, never target generation.",
+  "horizon_uncertainty": "Pointwise HAC normal intervals with 12 weekly lags; descriptive only, overlapping labels and many tests preclude automatic admission/significance claims.",
+  "periods": {"FULL": ["2012", "2026"], "EARLY": ["2012", "2015"], "MID": ["2016", "2020"], "RECENT": ["2021", "2026"]},
+  "weight_windows": [252, 126],
+  "weight_comparison": "Change lookback only; preserve minimum120, monthly updates, cap20%, max5pp change, fallback and all execution/risk rules. Use matured labels only.",
+  "family_ablation": "Delete one of five families from the original252 nominal weights, renormalize remaining weights without re-estimating them. Preserve the common eligible universe, standardization and portfolio rules. No parameter selection.",
+  "fees": [0, 0.0003, 0.0013],
+  "random_top15": {"replicates": 50, "seed": 20261021, "fees": [0.0003, 0.0013], "sampling": "Uniform without replacement from contemporaneous common score-eligible candidates, independently each weekly signal. Not industry-matched, not an independent hypothesis-test p-value."},
+  "benchmarks": ["original BASE_V2 eligible equal-weight", "fixed-score-valid common pool equal-weight", "common pool equal-weight with same already-causal target-equity series and action dates as BASE_RISK for each fee"],
+  "lag": "At each monthly update evaluate known trailing mean IC and actual weight against next calendar month's daily factor IC, only reporting fully matured labels. Future IC is evaluation-only. Report weight changes, cap/smoothing gap, fallback, turnover and industry composition changes.",
+  "limitations": ["All historical data already observed: this is retrospective diagnosis, not new untouched OOS.", "Inherited revised financial data, partial historical industries and cash-flow proxy.", "Weekly factor diagnostics use the saved standardized score panel; the historical daily IC weighting cache used raw-valid masks, so their IC means need not match.", "Missing future prices are not replaced by zero; report missing coverage and common/native samples; not a complete delisting-return reconstruction.", "Factor deletion and selection-stage deltas include interactions and changing holdings; they are not unique causal attributions.", "No lots, real taxes, minimum commissions or limit-order queues. Missing old-position prices cause stale marks and blocked sells; intended-basket risk limitation retained.", "No live defaults or paper accounts changed."]
+}

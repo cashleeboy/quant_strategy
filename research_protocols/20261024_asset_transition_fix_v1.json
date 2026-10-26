@@ -1,0 +1,13 @@
+{
+  "research_only": true,
+  "start": "2012-01-06",
+  "end": "2026-10-15",
+  "registry": "data/research_corporate_actions_v1.json",
+  "scope": "Rerun BASE/ALL5 broad and TECH15 weekly/monthly at3/13bp (16 accounts), plus known affected DIVIDEND weekly0/3/13bp and ALL5 broad weekly0bp (4 accounts). Other old historical experiments remain immutable, not silently relabeled as repaired.",
+  "change": "Only asset recognition/settlement engine changes. Frozen rankings, full historical risk inputs, RankIC weights, schedules, selection rules and costs retained. Re-evaluate strategy using actual repaired holdings; do not reuse old targets after swaps.",
+  "recognition": "Mandatory stock conversion on first listed trading session BEFORE that day's close execution. Ordinary unrestricted A-share shareholder, no optional cash exercise. Prior close retains source stale mark, so the overnight transition PNL is recognized on listing session; no early trading.",
+  "units": "adjusted units=new raw shares/new adj factor; new raw shares=old adjusted units*old adj factor*official ratio. Existing adjusted-price dividend treatment retained; no additional dividend cash.",
+  "fail_closed": "Held terminated asset without verified action, missing exact factor, unquoted destination on action date, conflicting events or unsupported corporate action raises. No invented last-price liquidation or zeroing.",
+  "legacy": "backtest/research_replay.py and compact_replay retained unchanged to reproduce sealed legacy results; all new asset-aware experiments use backtest/action_replay.py with required metadata. Paper ledger unchanged.",
+  "limitations": ["Fractional adjusted-price research accounting, not raw-share broker reconciliation", "Only two verified stock-swap events in registry, not a complete A-share corporate-action database", "No optional cash election, odd-lot allocation, locked insider stock, tax or cash dividends during suspension support", "Labels and historical factor caches not retrained; this is an execution/asset-accounting fix", "No new OOS claim"]
+}
